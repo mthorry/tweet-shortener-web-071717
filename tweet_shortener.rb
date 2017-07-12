@@ -17,17 +17,16 @@ end
 
 def word_substituter(tweet)
   words = tweet.split(" ")
-  words.each do |word|
 
-    dictionary.map do |key,value|
-      if word.downcase == key
-        word.replace(value)
-      end
+  words.map do |word|
+    if dictionary[word.downcase]
+      dictionary[word.downcase]
+    else
+      word
     end
+  end.join(" ")
 
-  end
 
-words.join(" ")
 end
 
 
